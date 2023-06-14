@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Index from './Pages/Index'
 import Layout from './Components/Layout'
+import Reports from './Pages/Reports'
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       <Layout>
         <Routes>
           <Route path='/' element={<Index />} />
-          <Route path='/all' element={<Index />} />
+          <Route path='/reports' element={<Reports />} />
           <Route path='/services' element={<Index />} />
           <Route path='/dropdown' element={<Index />} />
           <Route path='/pricing' element={<Index />} />
