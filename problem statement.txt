@@ -39,6 +39,8 @@ To participate in the hackathon, participants are required to submit the followi
  Mobile Number: A contact number to reach participants if necessary.
  College ID: A proof of enrollment or identification from their respective college or
 educational institution.
+
+
 Dashboard Requirements:
 The dashboard should fulfill the following requirements:
  Visualization: Present the data from the provided dataset in a visually appealing and easily

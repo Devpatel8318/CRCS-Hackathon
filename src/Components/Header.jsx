@@ -6,7 +6,7 @@ import satyamev_jayate from '../images/satya.png'
 
 function Header() {
     const [dropdown, setDropDown] = useState(false);
-    const [hamburger, setHamburger] = useState(false);
+    const [hamburger, setHamburger] = useState(true);
 
     function getDropDownStyle() {
         const dropDownCss = "z-10  font-normal bg-white divide-y absolute divide-gray-100 rounded-lg shadow w-44 transition-all duration-75 ";
@@ -43,14 +43,14 @@ function Header() {
     const path = splitLocation[splitLocation.length - 1];
     console.log(path);
 
-    const active = "   py-2 pl-3 pr-4 text-white    bg-orange-500 rounded md:bg-transparent md:text-orange-400 md:p-0 md:border-0 font-bold text-sm sm:text-sm   lg:text-xl";
-    const inactive =" py-2 pl-3 pr-4 text-gray-800               rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 font-bold  md:hover:text-green-800 md:p-0 text-sm sm:text-sm   lg:text-xl";
+    const active = "   py-1 sm:py-2 pl-3 pr-4 text-white    bg-orange-500 rounded md:bg-transparent md:text-orange-400 md:p-0 md:border-0 font-bold text-[10px] sm:text-sm   lg:text-lg";
+    const inactive =" py-1 sm:py-2 pl-3 pr-4 text-gray-800               rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 font-bold  md:hover:text-green-800 md:p-0 text-[10px] sm:text-sm   lg:text-lg";
     return (
-        <nav className="bg-white  border-gray-200 pb-2 shadow-2xl">
+        <nav className="  border-gray-200 pb-2 bg-gradient-to-r from-green-200 to-orange-200 ">
             <div className="max-w-screen px-1 sm:px-8 flex flex-wrap items-center justify-between">
                 <Link to={'/'} className="flex items-center">
                     <img src={satyamev_jayate} className="sm:w-14 w-5 mr-3" alt="satyamev jayate" />
-                    <span className="self-center text-xs sm:text-md  lg:text-2xl font-semibold whitespace-nowrap uppercase ">
+                    <span className="self-center text-[7px] xs:text-xs sm:text-md  lg:text-lg font-semibold whitespace-nowrap uppercase ">
                         The Central Registrar <br />
                         for Cooperative Societies
                     </span>
@@ -59,13 +59,13 @@ function Header() {
 
                 <button data-collapse-toggle="navbar-dropdown" onClick={() => setHamburger(!hamburger)} type="button" className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-dropdown" aria-expanded="false">
 
-                    <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
+                    <svg className=" w-3 h-3 sm:w-6 sm:h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
 
                 </button>
 
                 {/* Hamburger */}
                 <div className={getHamBurgerStyle()} id="navbar-dropdown">
-                    <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white md:py-2">
+                    <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 md:py-2">
 
                         <li>
                             <Link to={'/'} className={(path === "" ? active : inactive) + " block "} aria-current="page">Home</Link>
@@ -78,7 +78,7 @@ function Header() {
                             <div id="dropdownNavbar" className={getDropDownStyle()}>
                                 <ul className="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
                                     <li>
-                                        <Link to={'/'} className="block px-4 py-2 hover:bg-gray-100">Dashboard</Link>
+                                        <Link to={'/'} className="block px-4 py-2 hover:bg-gray-100">Home</Link>
                                     </li>
                                     <li>
                                         <Link to={'/reports'} className="block px-4 py-2 hover:bg-gray-100">Reports</Link>
@@ -94,7 +94,7 @@ function Header() {
                         </li>
 
                         <li>
-                            <Link to={'/services'} className={(path === "services" ? active : inactive) + " block "}>Services</Link>
+                            <Link to={'/reports'} className={(path === "reports" ? active : inactive) + " block "}>Reports</Link>
                         </li>
                         <li>
                             <Link to={'/pricing'} className={(path === "pricing" ? active : inactive) +  " block "}>Pricing</Link>

@@ -10,6 +10,10 @@ module.exports = {
       colors: {
         'primarygreen': '#50C878',
       }
+      ,
+      screens: {
+        'xs': '475px',
+      },
     },
     fontFamily: {
       'montserrat': ['Montserrat', 'Verdana', 'sans-serif'],
