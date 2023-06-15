@@ -97,7 +97,7 @@ function Header() {
                             <Link to={'/reports'} className={(path === "reports" ? active : inactive) + " block "}>Reports</Link>
                         </li>
                         <li>
-                            <Link to={'/pricing'} className={(path === "pricing" ? active : inactive) +  " block "}>Pricing</Link>
+                            <Link to={'/chart'} className={(path === "chart" ? active : inactive) +  " block "}>charts</Link>
                         </li>
                         <li>
                             <Link to={'/contact'} className={(path === "contact" ? active : inactive) + " block "}>Contact</Link>

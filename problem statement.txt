@@ -75,9 +75,5 @@ state wise chart
 type wise charts
 state wise list 
 
-in all page
-select state
-select type
-
 
 download forms
