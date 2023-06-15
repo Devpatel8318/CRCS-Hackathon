@@ -17,7 +17,8 @@ function Reports() {
   const [sortBy, setSortBy] = useState("a");
   const [state, setState] = useState('all');
   const allStatesOfIndia = ["ANDHRA PRADESH", "ANDAMAN AND NICOBAR", "ARUNACHAL PRADESH", "ASSAM", "BIHAR", "CHANDIGARH", "CHHATTISGARH", "DADA AND NAGAR HAVELI", "DAMAN AND DIU", "GOA", "GUJARAT", "HARYANA", "HIMACHAL PRADESH", "JAMMU AND KASHMIR", "JHARKHAND", "KARNATAKA", "KERALA", "LAKSHADWEEP", "MADHYA PRADESH", "MAHARASHTRA", "MANIPUR", "MEGHALAYA", "MIZORAM", "NAGALAND", "NEW DELHI", "ODISHA", "PONDICHERRY", "PUNJAB", "RAJASTHAN", "SIKKIM", "TAMIL NADU", "TELANGANA", "TRIPURA", "UTTAR PRADESH", "UTTARAKHAND", "WEST BENGAL"];
-
+  const allTypes = ["Agro", "Construction", "Consumer", "Cooperative Bank", "Credit", "Dairy", "Federation", "Fisheries", "Health/Hospital", "Housing", "Industrial/Textile", "Marketing", "Multi Purpose", "National Federation", "Others", "Technical", "Tourism", "Transport", "Welfare"]
+  const [type, setType] = useState('all');
   const renderOptions = () => {
     return Rows.map((row) => <option key={row}>{row}</option>);
   };
@@ -53,20 +54,40 @@ function Reports() {
   }
 
   useEffect(() => {
-    if (keyword) {
-      const filteredBooks = data.filter(book => {
-        return book["Name of Society"].toLowerCase().includes(keyword.toLowerCase());
-      });
-      const pageCount = Math.ceil(filteredBooks.length / rows);
-      setPageCount(pageCount);
-      const startIndex = (currentPage.current - 1) * rows;
-      const endIndex = startIndex + rows;
-      const paginatedBooks = filteredBooks.slice(startIndex, endIndex);
-      setBooks(paginatedBooks);
-    } else {
-      getPaginatedUsers();
-    }
-  }, [keyword, rows, currentPage.current]);
+    console.log(keyword, state, type);
+    const filteredBooks = data.filter(book => {
+      const nameOfSociety = book["Name of Society"]?.toLowerCase();
+      const bookState = book["State"]?.toLowerCase();
+      const bookType = book["Sector Type"]?.toLowerCase();
+
+
+      if (state === 'all' && type === 'all') {
+        return nameOfSociety?.includes(keyword?.toLowerCase());
+      } else if (state !== 'all' && type === 'all') {
+        return (nameOfSociety?.includes(keyword?.toLowerCase()) && bookState?.includes(state?.toLowerCase()));
+      } else if (state !== 'all' && type !== 'all') {
+        console.log(type, bookType);
+        return (nameOfSociety?.includes(keyword?.toLowerCase()) && bookType?.includes(type?.toLowerCase()) && bookState?.includes(state?.toLowerCase()));
+      } else if (state === 'all' && type !== 'all') {
+        console.log(state, type);
+        return (nameOfSociety?.includes(keyword?.toLowerCase()) && bookType?.includes(type?.toLowerCase()));
+      } else {
+        return (nameOfSociety?.includes(keyword?.toLowerCase()) &&
+          bookState?.includes(state?.toLowerCase()) &&
+          bookType?.toLowerCase()?.includes(type?.toLowerCase()));
+      }
+    });
+    console.log(filteredBooks);
+
+    const pageCount = Math.ceil(filteredBooks.length / rows);
+    setPageCount(pageCount);
+    const startIndex = (currentPage.current - 1) * rows;
+    const endIndex = startIndex + rows;
+    const paginatedBooks = filteredBooks.slice(startIndex, endIndex);
+    setBooks(paginatedBooks);
+
+  }, [keyword, rows, currentPage.current, state, data, type]);
+
 
   const sortBooks = (type) => {
 
@@ -79,7 +100,6 @@ function Reports() {
     const bookList = [...books];
 
     bookList.sort((a, b) => {
-      console.log(type);
       if (a[type] < b[type]) {
         return sortBy === "a" ? -1 : 1;
       }
@@ -92,27 +112,22 @@ function Reports() {
     setBooks(bookList);
   };
 
-  useEffect(() => {
-    console.log("useEffect called");
-    console.log(state);
-
-    if (state !== 'all') {
-      const filteredBooks = data.filter(book => {
-        return book["State"].toLowerCase().includes(state.toLowerCase());
-      });
-      console.log('====================================');
-      console.log(filteredBooks);
-      console.log('====================================');
-      const pageCount = Math.ceil(filteredBooks.length / rows);
-      setPageCount(pageCount);
-      const startIndex = (currentPage.current - 1) * rows;
-      const endIndex = startIndex + rows;
-      const paginatedBooks = filteredBooks.slice(startIndex, endIndex);
-      setBooks(paginatedBooks);
-    } else {
-      getPaginatedUsers();
-    }
-  }, [state]);
+  // useEffect(() => {
+  //   console.log("useEffect called");
+  //   if (state !== 'all') {
+  //     const filteredBooks = data.filter(book => {
+  //       return book["State"].toLowerCase().includes(state.toLowerCase());
+  //     });
+  //     const pageCount = Math.ceil(filteredBooks.length / rows);
+  //     setPageCount(pageCount);
+  //     const startIndex = (currentPage.current - 1) * rows;
+  //     const endIndex = startIndex + rows;
+  //     const paginatedBooks = filteredBooks.slice(startIndex, endIndex);
+  //     setBooks(paginatedBooks);
+  //   } else {
+  //     getPaginatedUsers();
+  //   }
+  // }, [state]);
 
 
 
@@ -122,33 +137,41 @@ function Reports() {
 
   return (
     <div className=''>
-      <div className='w-8/12 mx-auto text-center md:text-4xl mt-2 md:mt-6'>
+      <div className='w-8/12 mx-auto text-center md:text-4xl mt-2 md:mt-6 mb-4'>
         <span className='text-gray-700 font-semibold'>Reports
         </span>
       </div>
 
-      <div className="xs:w-11/12   mx-1 flex justify-between items-center hide-scrollbar-lg text-right xs:mx-auto overflow-scroll mb-2 md:mb-3">
-        <div className='w-3/12 md:w-3/12 '>
+      <div className="xs:w-11/12 mx-1 grid xs:grid-cols-3 grid-cols-1 gap-y-2 xs:gap-x-4 sm:gap-x-8 md:gap-x-16 lg:gap-x-32 hide-scrollbar-lg text-right xs:mx-auto overflow-scroll mb-2 md:mb-3">
+        <div className='w-1/2 xs:w-full '>
           <input
             type="text"
             name="search"
             autoComplete="off"
             placeholder="Search.."
-            className="h-[100%] ml-1 w-full text-[10px] md:text-sm py-0 xs:py-1 px-2 md:p-2"
+            className="h-[100%] w-full text-[10px] focus:ring-blue-500 focus:border-blue-500 rounded-lg md:text-sm py-0 xs:py-1 px-2 md:p-2"
             onChange={(e) => {
               setKeyword(e.target.value);
             }}
           />
         </div>
-
-        <div className='flex justify-center items-center'>
-          <div>
-            <span className='text-gray-600 mx-1 text-sm md:text-lg'> Sort: </span>
-          </div>
-          <select onChange={(e) => setState(e.target.value)}  value={state} className='border w-full text-gray-600  md:h-9  text-[10px] md:text-sm py-0 xs:py-1 px-2 md:p-2' defaultValue={'all'} >
+        <div className='flex justify-center items-center w-1/2 xs:w-full'>
+          <select onChange={(e) => {
+            setState(e.target.value);
+          }} className='border w-full text-gray-600  md:h-9  text-[10px] focus:ring-blue-500 focus:border-blue-500 rounded-lg md:text-sm py-0 xs:py-1 px-2 md:p-2' defaultValue={'all'} >
             <option value={"all"}>--select state--</option>
             {allStatesOfIndia.map(state => (
               <option key={state} value={state}>{state}</option>
+            ))}
+          </select>
+        </div>
+        <div className='flex justify-center items-left w-1/2 xs:w-full'>
+          <select onChange={(e) => {
+            setType(e.target.value);
+          }} className='border w-full text-gray-600  md:h-9  text-[10px] focus:ring-blue-500 focus:border-blue-500 rounded-lg md:text-sm py-0 xs:py-1 px-2 md:p-2' defaultValue={'all'} >
+            <option value={"all"}>--select type--</option>
+            {allTypes.map(type => (
+              <option key={type} value={type}>{type}</option>
             ))}
           </select>
         </div>
@@ -228,7 +251,7 @@ function Reports() {
       <div className="flex justify-between items-center w-11/12 mx-auto text-center  mt-1 p-3 text-sm">
         <div>
           <div className='text-sm md:text-lg'>
-            Total Societies: {data.length}
+            On this page: {books.length} out of {data.length}
           </div>
         </div>
         <div>
