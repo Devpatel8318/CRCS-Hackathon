@@ -45,17 +45,22 @@ Dashboard Requirements:
 The dashboard should fulfill the following requirements:
  Visualization: Present the data from the provided dataset in a visually appealing and easily
 understandable manner using charts, graphs, maps, etc.
- Filters and Interactivity: Allow users to interact with the dashboard by incorporating
+
+KIND OFF DONE !!  Filters and Interactivity: Allow users to interact with the dashboard by incorporating
 filters, dropdown menus, and selection options to explore and analyze specific aspects of
 the data.
+
  Key Metrics: Display key metrics, summaries, and trends related to MSCS, such as the
 number of registered MSCS, distribution across states and districts, popular sectors, etc.
  Drill-Down Capabilities: Enable users to drill down into specific MSCS details, such as
 their address, registration date, area of operation, and sector type.
+
  Responsive Design: Ensure that the dashboard is responsive and compatible with different
 screen sizes and devices for seamless user experience.
+
  Data Analytics: Utilize data analytics techniques to derive meaningful insights from the
 dataset and present them in an informative manner within the dashboard.
+
  User-Friendly Interface: Design an intuitive and user-friendly interface that allows
 users to navigate through the dashboard effortlessly.
 
@@ -64,3 +69,15 @@ Note:
 their dashboard designs.
  Consider incorporating additional features or functionalities that enhance the overall
 usability and effectiveness of the CRCS portal.
+
+
+state wise chart
+type wise charts
+state wise list 
+
+in all page
+select state
+select type
+
+
+download forms
