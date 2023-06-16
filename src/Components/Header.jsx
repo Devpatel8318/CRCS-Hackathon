@@ -50,7 +50,7 @@ function Header() {
             <div className="max-w-screen px-1 sm:px-8 flex flex-wrap items-center justify-between">
                 <Link to={'/'} className="flex items-center">
                     <img src={satyamev_jayate} className="sm:w-14 w-5 mr-3" alt="satyamev jayate" />
-                    <span className="self-center text-[8px] pt-1 xs:text-xs sm:text-md  lg:text-lg font-semibold whitespace-nowrap uppercase ">
+                    <span className="self-center text-[7px] xs:text-xs sm:text-md  lg:text-lg font-semibold whitespace-nowrap uppercase ">
                         The Central Registrar <br />
                         for Cooperative Societies
                     </span>
@@ -62,21 +62,22 @@ function Header() {
                     <svg className=" w-3 h-3 sm:w-6 sm:h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
 
                 </button>
+
                 <div className={getHamBurgerStyle()} id="navbar-dropdown">
                     <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 md:py-2">
 
                         <li>
                             <Link onClick={() => { setHamburger(true) }} to={'/'} className={(path === "" ? active : inactive) + " block "} aria-current="page">Home</Link>
                         </li>
-
+                        <li>
+                            <Link onClick={() => { setHamburger(true) }} to={'/reports'} className={(path === "reports" ? active : inactive) + " block "}>Reports</Link>
+                        </li>
                         <li>
                             <Link onClick={() => { setHamburger(true) }} to={'/map'} className={(path === "map" ? active : inactive) + " block "} aria-current="page">Map</Link>
                         </li>
-
                         <li>
-                            <Link onClick={() => { setHamburger(true) }} to={'/distribution'} className={(path === "distribution" ? active : inactive) + " block "} aria-current="page">Distribution</Link>
+                            <Link onClick={() => { setHamburger(true) }} to={'/chart'} className={(path === "chart" ? active : inactive) + " block "}>charts</Link>
                         </li>
-
                         {/* <li className=' relative'>
                             <button ref={targetRefDropDown} id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" onClick={() => setDropDown(!dropdown)} className={(path === "dropdown" ? active : inactive) + "  md:w-auto flex items-center justify-between w-full"}>Maps
                                 <svg className="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
@@ -99,15 +100,8 @@ function Header() {
                             </div>
                         </li> */}
 
-                        <li>
-                            <Link onClick={() => { setHamburger(true) }} to={'/reports'} className={(path === "reports" ? active : inactive) + " block "}>Reports</Link>
-                        </li>
-                        <li>
-                            <Link onClick={() => { setHamburger(true) }} to={'/chart'} className={(path === "chart" ? active : inactive) + " block "}>charts</Link>
-                        </li>
-                        <li>
-                            <Link onClick={() => { setHamburger(true) }} to={'/perstate'} className={(path === "perstate" ? active : inactive) + " block "}>Other Details</Link>
-                        </li>
+
+
                     </ul>
                 </div>
             </div>

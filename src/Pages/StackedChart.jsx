@@ -70,7 +70,7 @@ const CustomizedAxisTick = ({ x, y, payload }) => {
             y={y}
             textAnchor="end"
             fill="#000000"
-            fontSize={10}
+            fontSize={9}
         >
             {payload.value}
         </text>
@@ -104,18 +104,15 @@ const StackedChart = () => {
     ];
 
     return (
-        <div className="content mx-4 md:mx-20 c-white d90vh overflow-hidden">
-            <div className="text-center">
-                <h1 className="font-openSans font-semibold text-[#8982f0]">Distribution of Sector Types per States</h1>
-            </div>
+        <div className="content mx-4 md:mx-32 c-white d90vh overflow-hidden">
             <div className="w-full h-full">
                 <ResponsiveContainer height={"100%"} width={"100%"} >
                     <BarChart
                         layout="vertical"
                         data={filteredStateData}
                         stackOffset="expand"
-                        margin={{bottom: 85}} 
-                        padding={{left:85}}
+                        margin={{bottom: 85,left:20,right:20}} 
+                        // padding={{}}
                     >
                         <XAxis hide type="number" />
                         <YAxis tick={<CustomizedAxisTick />} type="category" dataKey="State" stroke="#FFFFFF" fontSize="12" />

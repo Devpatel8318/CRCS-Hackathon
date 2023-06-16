@@ -5,6 +5,7 @@ import { scaleQuantile, scaleLinear } from 'd3-scale';
 import ReactTooltip from 'react-tooltip';
 import LinearGradient from './LinearGradient.js';
 import './map.css';
+import StackedChart from './StackedChart.jsx';
 
 const INDIA_TOPO_JSON = require('./india.topo.json');
 const { data } = require('../Attachement -dummydataset.json');
@@ -152,38 +153,71 @@ function Map() {
   };
 
   const isMobile = window.innerWidth <= 576;
+  const [active, setActive] = useState(true);
+  const activeCss = "gap-1 inline-flex justify-center items-center px-3 md:px-6 py-2 md:py-2 text-white rounded-md bg-orange-500"
+  const inActiveCss = "gap-1  inline-flex justify-center items-center px-3 md:px-6 py-2 md:py-2  rounded-md bg-gray-200 text-gray-600"
 
   return (
-    <div className=" grow mb-2 overflow-hidden">
-      <h1 className="center text-2xl  mt-2 md:mt-4 font-poppins -mb-5">Number of Societies per State</h1>
-      <ReactTooltip >{tooltipContent}</ReactTooltip>
-      <ComposableMap
-        projectionConfig={PROJECTION_CONFIG}
-        projection="geoMercator"
-        width={isMobile ? 250 : 600}
-        height={220}
-        data-tip=""
-      >
-        <Geographies geography={INDIA_TOPO_JSON}>
-          {({ geographies }) =>
-            geographies.map(geo => {
-              const current = data.find(s => s.id === geo.id);
-              return (
-                <Geography
-                  key={geo.rsmKey}
-                  geography={geo}
-                  fill={current ? colorScale(current.value) : DEFAULT_COLOR}
-                  style={geographyStyle}
-                  onMouseEnter={onMouseEnter(geo, current)}
-                  onMouseLeave={onMouseLeave}
-                />
-              );
-            })
-          }
-        </Geographies>
-      </ComposableMap>
-      <LinearGradient data={gradientData} />
-    </div>
+
+
+    <>
+      <h1 className="text-center text-2xl  mt-2 md:mt-4 font-poppins -mb-5">Number of Societies per State</h1>
+
+      <nav className='flex flex-row justify-center w-10/12 mx-auto sm:w-full gap-2 mt-8 mb-4 text-sm sm:text-sm md:text-base'>
+        <button onClick={() => setActive(true)} className={active ? activeCss : inActiveCss} to={'/account'}>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 md:w-6 h-4 md:h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" />
+          </svg>
+          Map
+        </button>
+        <button onClick={() => setActive(false)} className={active ? inActiveCss : activeCss} to={'/account/bookings'}>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 md:w-6 h-4 md:h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z" />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z" />
+          </svg>
+          Chart
+        </button>
+      </nav>
+
+
+      {active && (
+        <div className=" grow mb-2 -mt-4 overflow-hidden">
+          <ReactTooltip >{tooltipContent}</ReactTooltip>
+          <ComposableMap
+            projectionConfig={PROJECTION_CONFIG}
+            projection="geoMercator"
+            width={isMobile ? 250 : 600}
+            height={220}
+            data-tip=""
+          >
+            <Geographies geography={INDIA_TOPO_JSON}>
+              {({ geographies }) =>
+                geographies.map(geo => {
+                  const current = data.find(s => s.id === geo.id);
+                  return (
+                    <Geography
+                      key={geo.rsmKey}
+                      geography={geo}
+                      fill={current ? colorScale(current.value) : DEFAULT_COLOR}
+                      style={geographyStyle}
+                      onMouseEnter={onMouseEnter(geo, current)}
+                      onMouseLeave={onMouseLeave}
+                    />
+                  );
+                })
+              }
+            </Geographies>
+          </ComposableMap>
+          <LinearGradient data={gradientData} />
+        </div>
+      )}
+
+      {!active && (
+        <StackedChart />
+      )}
+
+
+    </>
   );
 }
 

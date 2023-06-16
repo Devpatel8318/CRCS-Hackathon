@@ -140,7 +140,7 @@ function Reports() {
         </span>
       </div>
 
-      <div className="xs:w-11/12  mx-1 grid xs:grid-cols-3 grid-cols-1 gap-y-2 xs:gap-x-4 sm:gap-x-8 md:gap-x-16 lg:gap-x-32 hide-scrollbar-lg text-right xs:mx-auto overflow-scroll mb-2 md:mb-3">
+      <div className="w-11/12 xs:w-11/12  mx-auto grid xs:grid-cols-3 grid-cols-1 gap-y-2 xs:gap-x-4 sm:gap-x-8 md:gap-x-16 lg:gap-x-32 hide-scrollbar-lg text-right xs:mx-auto overflow-scroll mb-2 md:mb-3">
         <div className='w-1/2 xs:w-full '>
           <input
             type="text"
@@ -176,7 +176,7 @@ function Reports() {
 
       </div>
 
-      <div className="xs:w-11/12 mx-1 hide-scrollbar-lg  xs:mx-auto overflow-scroll bg-white shadow-md">
+      <div className=" w-11/12 mx-auto xs:w-11/12  hide-scrollbar-lg  xs:mx-auto overflow-scroll bg-white shadow-md">
         <table className="w-full border text-left max-w-full" >
           <thead className='border bg-green-100'>
             <tr className='border-b mx-1'>

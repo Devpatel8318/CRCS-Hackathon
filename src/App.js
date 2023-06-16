@@ -7,7 +7,6 @@ import { ThemeProvider } from 'styled-components'
 import StateCharts from './Pages/StateCharts'
 import PerState from './Pages/PerState'
 import Map from './Pages/Map'
-import StackedChart from './Pages/StackedChart'
 
 function App() {
   const theme = {
@@ -46,7 +45,6 @@ function App() {
               <Route path='/chart' element={<StateCharts/>} />
               <Route path='/chart' element={<StateCharts/>} />
               <Route path='/map' element={<Map/>} />
-              <Route path='/distribution' element={<StackedChart/>} />
             </Routes>
           </Layout>
         </BrowserRouter>
