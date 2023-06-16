@@ -49,8 +49,8 @@ function Header() {
         <nav className="  border-gray-200 pb-2 bg-gradient-to-r from-green-300 via-yellow-50 to-orange-300 ">
             <div className="max-w-screen px-1 sm:px-8 flex flex-wrap items-center justify-between">
                 <Link to={'/'} className="flex items-center justify-center">
-                    <img src={satyamev_jayate} className="sm:w-14 w-5 mr-3" alt="satyamev jayate" />
-                    <span className="self-center text-[10px] text-black mt-2 xs:text-xs sm:text-md  lg:text-lg font-semibold whitespace-nowrap uppercase ">
+                    <img src={satyamev_jayate} className="sm:w-14 w-5 mr-3 bg-white mt-2 rounded-xl" alt="satyamev jayate" />
+                    <span className="self-center text-[10px] mt-2 xs:text-xs sm:text-md text-gray-800 lg:text-lg font-semibold whitespace-nowrap uppercase ">
                         The Central Registrar <br />
                         for Cooperative Societies
                     </span>
@@ -76,7 +76,7 @@ function Header() {
                             <Link onClick={() => { setHamburger(true) }} to={'/map'} className={(path === "map" ? active : inactive) + " block "} aria-current="page">Map</Link>
                         </li>
                         <li>
-                            <Link onClick={() => { setHamburger(true) }} to={'/chart'} className={(path === "chart" ? active : inactive) + " block "}>charts</Link>
+                            <Link onClick={() => { setHamburger(true) }} to={'/chart'} className={(path === "chart" ? active : inactive) + " block "}>Charts</Link>
                         </li>
                         <li>
                             <Link onClick={() => { setHamburger(true) }} to={'/perstate'} className={(path === "perstate" ? active : inactive) + " block "}>Tables</Link>

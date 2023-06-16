@@ -2,12 +2,13 @@ import React from "react";
 
 
 const Footer = () => {
-  const links = [
-    { title: "State Registrars ", url: "#" },
-    { title: "Societies in the Second Schedule ", url: "#" },
-    { title: "Complaint & Hearing Notice ", url: "#" },
-    { title: "Hearing Order Sheet ", url: "#" },
-  ];
+  // In Future Links can be added
+  // const links = [
+  //   { title: "State Registrars ", url: "#" },
+  //   { title: "Societies in the Second Schedule ", url: "#" },
+  //   { title: "Complaint & Hearing Notice ", url: "#" },
+  //   { title: "Hearing Order Sheet ", url: "#" },
+  // ];
 
   return (
     <footer className="bg-gray-900 py-4 sm:py-6 md:py-8 lg:py-10">

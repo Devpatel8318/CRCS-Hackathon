@@ -7,6 +7,7 @@ import { ThemeProvider } from 'styled-components'
 import StateCharts from './Pages/StateCharts'
 import PerState from './Pages/PerState'
 import Map from './Pages/Map'
+import PDFViewer from './Pages/PDFViewer'
 
 function App() {
   const theme = {
@@ -44,6 +45,7 @@ function App() {
               <Route path='/perstate' element={<PerState />} />
               <Route path='/chart' element={<StateCharts/>} />
               <Route path='/map' element={<Map/>} />
+              <Route path='/pdf' element={<PDFViewer/>} />
             </Routes>
           </Layout>
         </BrowserRouter>

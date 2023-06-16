@@ -46,7 +46,7 @@ The dashboard should fulfill the following requirements:
  Visualization: Present the data from the provided dataset in a visually appealing and easily
 understandable manner using charts, graphs, maps, etc.
 
-KIND OFF DONE !!  Filters and Interactivity: Allow users to interact with the dashboard by incorporating
+ Filters and Interactivity: Allow users to interact with the dashboard by incorporating
 filters, dropdown menus, and selection options to explore and analyze specific aspects of
 the data.
 
@@ -89,7 +89,8 @@ download forms
 
 
 
-the task is to design and develop a comprehensive dashboard for the upcoming new CRCS portal that will streamline the registration process, handle amendments and
+the task is to design and develop a comprehensive dashboard for the upcoming new CRCS portal 
+that will streamline the registration process, handle amendments and
 appeals, and manage annual returns for the registered societies.
 
 
@@ -97,16 +98,6 @@ appeals, and manage annual returns for the registered societies.
 
 Dashboard Requirements:
 The dashboard should fulfill the following requirements:
-
- maps
-
-
- Drill-Down Capabilities: Enable users to drill down into specific MSCS details, such as
-their address, registration date, area of operation, and sector type.
-
-
- Data Analytics: Utilize data analytics techniques to derive meaningful insights from the
-dataset and present them in an informative manner within the dashboard.
 
 
 
