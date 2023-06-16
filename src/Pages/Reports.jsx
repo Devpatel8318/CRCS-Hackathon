@@ -3,11 +3,9 @@ import ReactPaginate from 'react-paginate';
 let { data } = require('../Attachement -dummydataset.json');
 
 
-
-
 function Reports() {
   const [books, setBooks] = useState(data);
-  // const [filterData,setFilterData] = useState(data);
+  const [filterData, setFilterData] = useState(data);
   const [pageCount, setPageCount] = useState(1);
   const currentPage = useRef();
   const [rows, setRows] = useState(15);
@@ -77,10 +75,10 @@ function Reports() {
           bookType?.toLowerCase()?.includes(type?.toLowerCase()));
       }
     });
-    console.log(filteredBooks);
 
     const pageCount = Math.ceil(filteredBooks.length / rows);
     setPageCount(pageCount);
+    setFilterData(filteredBooks);
     const startIndex = (currentPage.current - 1) * rows;
     const endIndex = startIndex + rows;
     const paginatedBooks = filteredBooks.slice(startIndex, endIndex);
@@ -142,7 +140,7 @@ function Reports() {
         </span>
       </div>
 
-      <div className="xs:w-11/12 mx-1 grid xs:grid-cols-3 grid-cols-1 gap-y-2 xs:gap-x-4 sm:gap-x-8 md:gap-x-16 lg:gap-x-32 hide-scrollbar-lg text-right xs:mx-auto overflow-scroll mb-2 md:mb-3">
+      <div className="xs:w-11/12  mx-1 grid xs:grid-cols-3 grid-cols-1 gap-y-2 xs:gap-x-4 sm:gap-x-8 md:gap-x-16 lg:gap-x-32 hide-scrollbar-lg text-right xs:mx-auto overflow-scroll mb-2 md:mb-3">
         <div className='w-1/2 xs:w-full '>
           <input
             type="text"
@@ -250,12 +248,15 @@ function Reports() {
       </div>
       <div className="flex justify-between items-center w-11/12 mx-auto text-center  mt-1 p-3 text-sm">
         <div>
-          <div className='text-sm md:text-lg'>
-            On this page: {books.length} out of {data.length}
+          <div className='text-sm md:text-lg text-gray-800'>
+            On this page: {books.length} out of {filterData?.length} filtered
+          </div>
+          <div className='text-sm md:text-lg text-gray-700'>
+            Total {data?.length} Societies
           </div>
         </div>
         <div>
-          <div className='text-sm md:text-lg'>
+          <div className='text-sm md:text-lg text-gray-700'>
             Rows per page:
           </div>
           <select className="ml-2 text-sm md:text-lg" onChange={handleSelectChange}>

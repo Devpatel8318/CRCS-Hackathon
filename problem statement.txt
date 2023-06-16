@@ -71,9 +71,43 @@ their dashboard designs.
 usability and effectiveness of the CRCS portal.
 
 
-state wise chart
-type wise charts
-state wise list 
+
+
+download forms
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+the task is to design and develop a comprehensive dashboard for the upcoming new CRCS portal that will streamline the registration process, handle amendments and
+appeals, and manage annual returns for the registered societies.
+
+
+
+
+Dashboard Requirements:
+The dashboard should fulfill the following requirements:
+
+ maps
+
+
+ Drill-Down Capabilities: Enable users to drill down into specific MSCS details, such as
+their address, registration date, area of operation, and sector type.
+
+
+ Data Analytics: Utilize data analytics techniques to derive meaningful insights from the
+dataset and present them in an informative manner within the dashboard.
+
 
 
 download forms

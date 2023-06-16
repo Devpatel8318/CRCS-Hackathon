@@ -4,8 +4,10 @@ import Index from './Pages/Index'
 import Layout from './Components/Layout'
 import Reports from './Pages/Reports'
 import { ThemeProvider } from 'styled-components'
-import Two from './Pages/Two'
 import StateCharts from './Pages/StateCharts'
+import PerState from './Pages/PerState'
+import Map from './Pages/Map'
+import StackedChart from './Pages/StackedChart'
 
 function App() {
   const theme = {
@@ -39,12 +41,12 @@ function App() {
             <Routes>
               <Route path='/' element={<Index />} />
               <Route path='/reports' element={<Reports />} />
-              <Route path='/services' element={<Index />} />
               <Route path='/dropdown' element={<Index />} />
-              <Route path='/pricing' element={<Index />} />
-              <Route path='/contact' element={<Index />} />
-              <Route path='/two' element={<Two />} />
+              <Route path='/perstate' element={<PerState />} />
               <Route path='/chart' element={<StateCharts/>} />
+              <Route path='/chart' element={<StateCharts/>} />
+              <Route path='/map' element={<Map/>} />
+              <Route path='/distribution' element={<StackedChart/>} />
             </Routes>
           </Layout>
         </BrowserRouter>
