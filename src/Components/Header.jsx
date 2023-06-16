@@ -43,14 +43,14 @@ function Header() {
     const path = splitLocation[splitLocation.length - 1];
     console.log(path);
 
-    const active = "  py-1 sm:py-2 pl-3 pr-4 text-white    bg-orange-500 rounded md:bg-transparent md:text-orange-400 md:p-0 md:border-0  text-[10px] sm:text-sm   lg:text-lg font-medium";
-    const inactive = " py-1 sm:py-2 pl-3 pr-4 text-gray-800               rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0   md:hover:text-green-800 md:p-0 text-[10px] sm:text-sm   lg:text-lg font-medium";
+    const active = "  py-1 sm:py-2 pl-3 pr-4 text-white    bg-orange-500 rounded md:bg-transparent md:text-orange-500 md:p-0 md:border-0 md:bg-orange-100 md:px-2 md:rounded-md md:text-md text-[10px] sm:text-sm   lg:text-lg font-medium";
+    const inactive = " py-1 sm:py-2 pl-3 pr-4 text-gray-800               rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:px-2 md:rounded-md  md:hover:text-green-800 md:p-0 text-[10px] sm:text-sm   lg:text-lg font-medium";
     return (
         <nav className="  border-gray-200 pb-2 bg-gradient-to-r from-green-200 to-orange-200 ">
             <div className="max-w-screen px-1 sm:px-8 flex flex-wrap items-center justify-between">
                 <Link to={'/'} className="flex items-center">
                     <img src={satyamev_jayate} className="sm:w-14 w-5 mr-3" alt="satyamev jayate" />
-                    <span className="self-center text-[7px] xs:text-xs sm:text-md  lg:text-lg font-semibold whitespace-nowrap uppercase ">
+                    <span className="self-center text-[8px] pt-1 xs:text-xs sm:text-md  lg:text-lg font-semibold whitespace-nowrap uppercase ">
                         The Central Registrar <br />
                         for Cooperative Societies
                     </span>
@@ -62,8 +62,6 @@ function Header() {
                     <svg className=" w-3 h-3 sm:w-6 sm:h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
 
                 </button>
-
-                {/* Hamburger */}
                 <div className={getHamBurgerStyle()} id="navbar-dropdown">
                     <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 md:py-2">
 

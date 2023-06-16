@@ -147,7 +147,7 @@ function Reports() {
             name="search"
             autoComplete="off"
             placeholder="Search.."
-            className="h-[100%] w-full text-[10px] focus:ring-blue-500 focus:border-blue-500 rounded-lg md:text-sm py-0 xs:py-1 px-2 md:p-2"
+            className="h-[100%] w-full  border-gray-300̃  bg-gray-100 text-[10px] focus:ring-blue-500 focus:border-blue-500 rounded-lg md:text-sm py-0 xs:py-1 px-2 md:p-2"
             onChange={(e) => {
               setKeyword(e.target.value);
             }}
@@ -156,7 +156,7 @@ function Reports() {
         <div className='flex justify-center items-center w-1/2 xs:w-full'>
           <select onChange={(e) => {
             setState(e.target.value);
-          }} className='border w-full text-gray-600  md:h-9  text-[10px] focus:ring-blue-500 focus:border-blue-500 rounded-lg md:text-sm py-0 xs:py-1 px-2 md:p-2' defaultValue={'all'} >
+          }} className='border  border-gray-300 w-full text-gray-600 bg-gray-100  md:h-9  text-[10px] focus:ring-blue-500 focus:border-blue-500 rounded-lg md:text-sm py-0 xs:py-1 px-2 md:p-2' defaultValue={'all'} >
             <option value={"all"}>--select state--</option>
             {allStatesOfIndia.map(state => (
               <option key={state} value={state}>{state}</option>
@@ -166,7 +166,7 @@ function Reports() {
         <div className='flex justify-center items-left w-1/2 xs:w-full'>
           <select onChange={(e) => {
             setType(e.target.value);
-          }} className='border w-full text-gray-600  md:h-9  text-[10px] focus:ring-blue-500 focus:border-blue-500 rounded-lg md:text-sm py-0 xs:py-1 px-2 md:p-2' defaultValue={'all'} >
+          }} className='border border-gray-300 w-full text-gray-600  bg-gray-100 md:h-9  text-[10px] focus:ring-blue-500 focus:border-blue-500 rounded-lg md:text-sm py-0 xs:py-1 px-2 md:p-2' defaultValue={'all'} >
             <option value={"all"}>--select type--</option>
             {allTypes.map(type => (
               <option key={type} value={type}>{type}</option>

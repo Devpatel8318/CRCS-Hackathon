@@ -57,7 +57,6 @@ const renderCustomizedLabel = (props) => {
 
     return <Label {...rest} fontSize="12" fill="#FFFFFF" fontWeight="Bold" />;
 };
-// Generate bars with different colors
 const bars = sectorTypesArray.map((sectorType, index) => (
     <Bar key={sectorType} dataKey={sectorType} fill={colors[index % colors.length]} stackId="a">
         <LabelList dataKey={sectorType} position="center" content={renderCustomizedLabel} />
@@ -71,7 +70,7 @@ const CustomizedAxisTick = ({ x, y, payload }) => {
             y={y}
             textAnchor="end"
             fill="#000000"
-            fontSize={8}
+            fontSize={10}
         >
             {payload.value}
         </text>
@@ -105,7 +104,7 @@ const StackedChart = () => {
     ];
 
     return (
-        <div className="content mx-4 c-white d90vh">
+        <div className="content mx-4 md:mx-20 c-white d90vh overflow-hidden">
             <div className="text-center">
                 <h1 className="font-openSans font-semibold text-[#8982f0]">Distribution of Sector Types per States</h1>
             </div>
@@ -115,7 +114,8 @@ const StackedChart = () => {
                         layout="vertical"
                         data={filteredStateData}
                         stackOffset="expand"
-                        margin={{bottom: 85 }} 
+                        margin={{bottom: 85}} 
+                        padding={{left:85}}
                     >
                         <XAxis hide type="number" />
                         <YAxis tick={<CustomizedAxisTick />} type="category" dataKey="State" stroke="#FFFFFF" fontSize="12" />

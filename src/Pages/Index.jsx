@@ -2,7 +2,7 @@ import React from 'react'
 
 function Index() {
   return (
-    <div className='w-full grow grid lg:grid-cols-10 bg-gradient-to-r from-orange-100 via-white to-green-100'>
+    <div className='w-full grow grid lg:grid-cols-10 '>
 
       <div className='flex justify-center items-center lg:col-span-4'>
         <img src="https://mscs.dac.gov.in/images/MSCS_LOGO.png" className="lg:h-auto w-[40%] mt-2 lg:w-[50%] object-contain" alt="" />
