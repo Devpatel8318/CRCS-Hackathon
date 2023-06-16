@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
-import { scaleQuantile, scaleLinear } from 'd3-scale';
+import { scaleQuantile} from 'd3-scale';
 
 import ReactTooltip from 'react-tooltip';
 import LinearGradient from './LinearGradient.js';
@@ -181,7 +181,7 @@ function Map() {
 
 
       {active && (
-        <div className=" grow mb-2 -mt-4 overflow-hidden">
+        <div className=" grow mb-8 -mt-4 overflow-hidden ">
           <ReactTooltip >{tooltipContent}</ReactTooltip>
           <ComposableMap
             projectionConfig={PROJECTION_CONFIG}

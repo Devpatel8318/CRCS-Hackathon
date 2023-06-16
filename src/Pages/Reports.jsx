@@ -136,7 +136,7 @@ function Reports() {
   return (
     <div className=''>
       <div className='w-8/12 mx-auto text-center md:text-4xl mt-2 md:mt-6 mb-4'>
-        <span className='text-gray-700 font-semibold'>Reports
+        <span className='text-gray-700 font-semibold'>All Data
         </span>
       </div>
 
