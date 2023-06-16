@@ -43,7 +43,6 @@ function App() {
               <Route path='/dropdown' element={<Index />} />
               <Route path='/perstate' element={<PerState />} />
               <Route path='/chart' element={<StateCharts/>} />
-              <Route path='/chart' element={<StateCharts/>} />
               <Route path='/map' element={<Map/>} />
             </Routes>
           </Layout>

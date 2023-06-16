@@ -78,6 +78,9 @@ function Header() {
                         <li>
                             <Link onClick={() => { setHamburger(true) }} to={'/chart'} className={(path === "chart" ? active : inactive) + " block "}>charts</Link>
                         </li>
+                        <li>
+                            <Link onClick={() => { setHamburger(true) }} to={'/perstate'} className={(path === "perstate" ? active : inactive) + " block "}>Tables</Link>
+                        </li>
                         {/* <li className=' relative'>
                             <button ref={targetRefDropDown} id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" onClick={() => setDropDown(!dropdown)} className={(path === "dropdown" ? active : inactive) + "  md:w-auto flex items-center justify-between w-full"}>Maps
                                 <svg className="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
