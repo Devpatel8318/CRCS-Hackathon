@@ -41,12 +41,11 @@ function Header() {
     const { pathname } = location;
     const splitLocation = pathname.split("/");
     const path = splitLocation[splitLocation.length - 1];
-    console.log(path);
 
     const active = "  py-1 sm:py-2 pl-3 pr-4 text-white    bg-orange-500 rounded  md:text-orange-500 md:p-0 md:border-0 md:bg-orange-50 md:px-2 md:rounded-md md:text-md text-sm sm:text-sm   lg:text-lg font-medium";
     const inactive = " py-1 sm:py-2 pl-3 pr-4 text-gray-800               rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:px-2 md:rounded-md  md:hover:text-green-800 md:p-0 text-sm sm:text-sm   lg:text-lg font-medium";
     return (
-        <nav className="  border-gray-200 pb-2 bg-gradient-to-r from-green-300 via-yellow-50 to-orange-300 ">
+        <nav className="  border-gray-200 pb-2 bg-gradient-to-r from-orange-200 via-[#f7f5db] to-green-200 overflow-hidden">
             <div className="max-w-screen px-1 sm:px-8 flex flex-wrap items-center justify-between">
                 <Link to={'/'} className="flex items-center justify-center">
                     <img src={satyamev_jayate} className="sm:w-14 w-5 mr-3 bg-white mt-2 rounded-xl" alt="satyamev jayate" />
@@ -81,27 +80,15 @@ function Header() {
                         <li>
                             <Link onClick={() => { setHamburger(true) }} to={'/perstate'} className={(path === "perstate" ? active : inactive) + " block "}>Tables</Link>
                         </li>
-                        {/* <li className=' relative'>
-                            <button ref={targetRefDropDown} id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" onClick={() => setDropDown(!dropdown)} className={(path === "dropdown" ? active : inactive) + "  md:w-auto flex items-center justify-between w-full"}>Maps
-                                <svg className="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
-                            </button>
-                            <div id="dropdownNavbar" className={getDropDownStyle()}>
-                                <ul className="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
-                                    <li>
-                                        <Link onClick={() => { setHamburger(true) }} to={'/'} className="block px-4 py-2 hover:bg-gray-100">Home</Link>
-                                    </li>
-                                    <li>
-                                        <Link onClick={() => { setHamburger(true) }} to={'/reports'} className="block px-4 py-2 hover:bg-gray-100">Reports</Link>
-                                    </li>
-                                    <li>
-                                        <Link onClick={() => { setHamburger(true) }} to={'/'} className="block px-4 py-2 hover:bg-gray-100">Earnings</Link>
-                                    </li>
-                                </ul>
-                                <div className="py-1">
-                                    <Link onClick={() => { setHamburger(true) }} to={'/'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Sign out</Link>
-                                </div>
-                            </div>
-                        </li> */}
+                       
+                        <li>
+                            <Link onClick={() => { setHamburger(true) }} to={'/forms'} className={(path === "forms" ? active : inactive) + " block "}>Forms</Link>
+                        </li>
+
+                        <li>
+                            <Link onClick={() => { setHamburger(true) }} to={'/login'} className={(path === "login" ? active : inactive) + " block "}>login</Link>
+                        </li>
+
 
 
 

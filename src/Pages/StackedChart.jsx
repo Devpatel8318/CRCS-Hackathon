@@ -49,7 +49,6 @@ filteredStateData.forEach(obj => {
     });
 });
 
-console.log(sectorTypesArray);
 const colors = ['#dd7876', '#82ba7f', '#76a8dd', '#f4ca64', '#ab9df2', '#f2938c', '#8cccb9'];
 
 const renderCustomizedLabel = (props) => {

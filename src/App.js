@@ -7,7 +7,8 @@ import { ThemeProvider } from 'styled-components'
 import StateCharts from './Pages/StateCharts'
 import PerState from './Pages/PerState'
 import Map from './Pages/Map'
-import PDFViewer from './Pages/PDFViewer'
+import Forms from './Pages/Forms'
+import Login from './Pages/login/Login'
 
 function App() {
   const theme = {
@@ -35,7 +36,7 @@ function App() {
     },
   };
   return (
-    <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
         <BrowserRouter>
           <Layout>
             <Routes>
@@ -43,13 +44,14 @@ function App() {
               <Route path='/reports' element={<Reports />} />
               <Route path='/dropdown' element={<Index />} />
               <Route path='/perstate' element={<PerState />} />
-              <Route path='/chart' element={<StateCharts/>} />
-              <Route path='/map' element={<Map/>} />
-              <Route path='/pdf' element={<PDFViewer/>} />
+              <Route path='/chart' element={<StateCharts />} />
+              <Route path='/map' element={<Map />} />
+              <Route path='/forms' element={<Forms />} />
+              <Route path='/login' element={<Login />} />
             </Routes>
           </Layout>
         </BrowserRouter>
-    </ThemeProvider>
+      </ThemeProvider>
   )
 }
 

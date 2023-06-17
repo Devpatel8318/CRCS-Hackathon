@@ -110,24 +110,6 @@ function Reports() {
     setBooks(bookList);
   };
 
-  // useEffect(() => {
-  //   console.log("useEffect called");
-  //   if (state !== 'all') {
-  //     const filteredBooks = data.filter(book => {
-  //       return book["State"].toLowerCase().includes(state.toLowerCase());
-  //     });
-  //     const pageCount = Math.ceil(filteredBooks.length / rows);
-  //     setPageCount(pageCount);
-  //     const startIndex = (currentPage.current - 1) * rows;
-  //     const endIndex = startIndex + rows;
-  //     const paginatedBooks = filteredBooks.slice(startIndex, endIndex);
-  //     setBooks(paginatedBooks);
-  //   } else {
-  //     getPaginatedUsers();
-  //   }
-  // }, [state]);
-
-
 
 
 
