@@ -1,6 +1,5 @@
 import React from 'react'
-
-function SmallTable({ sortBooks2, sortBooks, heading, data, category }) {
+function SmallTable({ sortDataSector, sortDataState, heading, data, category }) {
     console.log(category);
     console.log(category === "state");
     console.log(data);
@@ -15,14 +14,13 @@ function SmallTable({ sortBooks2, sortBooks, heading, data, category }) {
                     <tr className='border-b mx-1'>
                         <th className='border  py-1 sm:py-2 md:py-2 text-[10px] md:text-base text-center'>Sector Type</th>
                         <th className='border  py-1 sm:py-2 md:py-2 text-[10px] md:text-base text-center'>
-
                             <button onClick={() => {
                                 if (category === "state") {
                                     console.log("state");
-                                    sortBooks("count");
+                                    sortDataState("count");
                                 }
                                 else {
-                                    sortBooks2("count")
+                                    sortDataSector("count")
                                 }
                             }} className='flex flex-col justify-center items-center w-1/2 mx-auto'>
                                 <div>
@@ -33,7 +31,6 @@ function SmallTable({ sortBooks2, sortBooks, heading, data, category }) {
                                 </svg>
                             </button>
                         </th>
-
                     </tr>
                 </thead>
                 <tbody>

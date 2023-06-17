@@ -1,66 +1,14 @@
 import React, { useState } from 'react';
 import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
 import { scaleQuantile} from 'd3-scale';
-
+import {stateArray , stateCodes} from '../allData';
 import ReactTooltip from 'react-tooltip';
 import LinearGradient from './LinearGradient.js';
 import './map.css';
 import StackedChart from './StackedChart.jsx';
 
 const INDIA_TOPO_JSON = require('./india.topo.json');
-const { data } = require('../Attachement -dummydataset.json');
 
-const stateOccurrences = data.reduce((acc, obj) => {
-  const state = obj["State"];
-  acc[state] = acc[state] ? acc[state] + 1 : 1;
-  return acc;
-}, []);
-
-const stateArray = Object.entries(stateOccurrences).map(([state, count]) => ({
-  state,
-  count
-}));
-
-const stateCodes = [
-  { id: 'AP', state: 'Andhra Pradesh' },
-  { id: 'AR', state: 'Arunachal Pradesh' },
-  { id: 'AS', state: 'Assam' },
-  { id: 'BR', state: 'Bihar' },
-  { id: 'CT', state: 'Chhattisgarh' },
-  { id: 'GA', state: 'Goa' },
-  { id: 'GJ', state: 'Gujarat' },
-  { id: 'HR', state: 'Haryana' },
-  { id: 'HP', state: 'Himachal Pradesh' },
-  { id: 'JH', state: 'Jharkhand' },
-  { id: 'KA', state: 'Karnataka' },
-  { id: 'KL', state: 'Kerala' },
-  { id: 'MP', state: 'Madhya Pradesh' },
-  { id: 'MH', state: 'Maharashtra' },
-  { id: 'MN', state: 'Manipur' },
-  { id: 'ML', state: 'Meghalaya' },
-  { id: 'MZ', state: 'Mizoram' },
-  { id: 'NL', state: 'Nagaland' },
-  { id: 'OR', state: 'Odisha' },
-  { id: 'PB', state: 'Punjab' },
-  { id: 'RJ', state: 'Rajasthan' },
-  { id: 'SK', state: 'Sikkim' },
-  { id: 'TN', state: 'Tamil Nadu' },
-  { id: 'TG', state: 'Telangana' },
-  { id: 'TR', state: 'Tripura' },
-  { id: 'UT', state: 'Uttarakhand' },
-  { id: 'UP', state: 'Uttar Pradesh' },
-  { id: 'WB', state: 'West Bengal' },
-  { id: 'WB', state: 'West Bengal' },
-  { id: 'AN', state: 'Andaman and Nicobar Islands' },
-  { id: 'CH', state: 'Chandigarh' },
-  { id: 'DN', state: 'Dadra and Nagar Haveli' },
-  { id: 'DD', state: 'Daman and Diu' },
-  { id: 'DL', state: 'Delhi' },
-  { id: 'JK', state: 'Jammu and Kashmir' },
-  { id: 'LA', state: 'Ladakh' },
-  { id: 'LD', state: 'Lakshadweep' },
-  { id: 'PY', state: 'Puducherry' },
-];
 
 const heatMap = stateCodes.map(stateCode => {
   const stateData = stateArray.find(state => state.state.toUpperCase() === stateCode.state.toUpperCase());

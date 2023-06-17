@@ -1,19 +1,8 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
 import "./login.css";
 import StateCitySelector from '../StateCitySelector';
 const allTypes = ["Agro", "Construction", "Consumer", "Cooperative Bank", "Credit", "Dairy", "Federation", "Fisheries", "Health/Hospital", "Housing", "Industrial/Textile", "Marketing", "Multi Purpose", "National Federation", "Others", "Technical", "Tourism", "Transport", "Welfare"]
 
-
-// input[type="text"] ,input[type="tel"] , input[type="password"],input[type="number"] ,textarea, input[type="email"]{
-//     @apply w-full border my-1 rounded-xl p-3
-// }
-// .myButton{
-//     @apply bg-gray-300
-// }
-// .myButton.primary{
-//     @apply bg-orange-500 p-2 w-full text-white rounded-xl;
-// }
 
 
 function Login() {
@@ -25,7 +14,7 @@ function Login() {
 
     const [type, setType] = useState('all');
 
-    //Function is ready just provide CRCS api link
+    //Function is ready, just provide CRCS api link
     // async function userLogin(ev) {
     //     try {
     //         ev.preventDefault();

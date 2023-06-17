@@ -13,21 +13,17 @@ function MyPieChart({ Data, chartData, heading, keyElement }) {
             setIsMobile(window.innerWidth <= 600);
         };
 
-        handleResize(); // Set initial screen size
-        window.addEventListener("resize", handleResize); // Listen for resize events
+        handleResize(); 
+        window.addEventListener("resize", handleResize); 
 
         return () => {
-            window.removeEventListener("resize", handleResize); // Clean up the event listener on unmount
+            window.removeEventListener("resize", handleResize);
         };
     }, []);
-
-    // Custom formatter function for legend item
     const renderLegendItem = (value, entry) => {
         const fontSize = isMobile ? "7px" : "15px";
         return <span style={{ fontSize }}>{value}</span>;
     };
-
-
     return (
         <div className="border mb-16 pb-10">
             <div className='w-8/12 mx-auto text-center md:text-2xl mt-2 -mb-20'>

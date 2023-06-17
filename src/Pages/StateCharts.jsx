@@ -1,30 +1,10 @@
 import React, { useState } from "react";
+import {stateArray , sectorArray} from '../allData';
 import Graph from "../Components/Graph";
 import MyPieChart from "../Components/MyPieChart";
 
 let { data } = require('../Attachement -dummydataset.json');
 
-const stateOccurrences = data.reduce((acc, obj) => {
-  const state = obj["State"];
-  acc[state] = acc[state] ? acc[state] + 1 : 1;
-  return acc;
-}, []);
-
-const stateArray = Object.entries(stateOccurrences).map(([state, count]) => ({
-  state,
-  count
-}));
-
-const sectorOccurrences = data.reduce((acc, obj) => {
-  const sectorType = obj["Sector Type"];
-  acc[sectorType] = acc[sectorType] ? acc[sectorType] + 1 : 1;
-  return acc;
-}, []);
-
-const sectorArray = Object.entries(sectorOccurrences).map(([sectorType, count]) => ({
-  sectorType,
-  count
-}));
 
 
 

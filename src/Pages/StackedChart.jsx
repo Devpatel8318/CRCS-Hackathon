@@ -12,6 +12,7 @@ import {
 } from "recharts";
 
 const { data } = require('../Attachement -dummydataset.json');
+
 const stateData = {};
 data.forEach(item => {
     const State = item.State;

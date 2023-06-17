@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Bar, BarChart, Cell, Label, ResponsiveContainer, Tooltip, XAxis } from 'recharts';
+import { Bar, BarChart, Cell,ResponsiveContainer, Tooltip, XAxis } from 'recharts';
 
 const CustomizedAxisTick = ({ x, y, payload }) => {
     return (

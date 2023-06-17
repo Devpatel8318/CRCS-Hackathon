@@ -1,117 +1,68 @@
-import React, { useState } from 'react'
+import {stateArray , sectorArray} from '../allData';
+import React, { useState } from 'react';
 import SmallTable from '../Components/SmallTable';
-let { data } = require('../Attachement -dummydataset.json');
-
-const stateOccurrences = data.reduce((acc, obj) => {
-    const state = obj["State"];
-    acc[state] = acc[state] ? acc[state] + 1 : 1;
-    return acc;
-}, []);
-
-const stateArray = Object.entries(stateOccurrences).map(([state, count]) => ({
-    state,
-    count
-}));
-
-const sectorOccurrences = data.reduce((acc, obj) => {
-    const sectorType = obj["Sector Type"];
-    acc[sectorType] = acc[sectorType] ? acc[sectorType] + 1 : 1;
-    return acc;
-}, []);
-
-const sectorArray = Object.entries(sectorOccurrences).map(([sectorType, count]) => ({
-    sectorType,
-    count
-}));
 
 function PerState() {
-    const [books, setBooks] = useState(stateArray);
-    const [sector, setSector] = useState(sectorArray);
+    const [dataState, setDataState] = useState(stateArray);
+    const [dataSector, setDataSector] = useState(sectorArray);
 
-    const [sortBy, setSortBy] = useState("a");
-    const [sortBy2, setSortBy2] = useState("a");
+    const [sortByState, setSortByState] = useState("a");
+    const [sortBySector, setSortBySector] = useState("a");
 
-
-    function sortBooks(x) {
-        if (sortBy === "a") {
-            setSortBy("z");
+    function sortDataState() {
+        if (sortByState === "a") {
+            setSortByState("z");
+        } else if (sortByState === "z") {
+            setSortByState("a");
         }
-        if (sortBy === "z") {
-            setSortBy("a");
-        }
-        const bookList = [...books];
 
-        bookList.sort((a, b) => {
+        const sortedDataState = [...dataState];
+
+        sortedDataState.sort((a, b) => {
             if (a["count"] < b["count"]) {
-                return sortBy === "a" ? -1 : 1;
-            }
-            if (a["count"] > b["count"]) {
-                return sortBy === "a" ? 1 : -1;
+                return sortByState === "a" ? -1 : 1;
+            } else if (a["count"] > b["count"]) {
+                return sortByState === "a" ? 1 : -1;
             }
             return 0;
         });
-        setBooks(bookList);
+
+        setDataState(sortedDataState);
     }
 
-    function sortBooks2(x) {
-        if (sortBy2 === "a") {
-            setSortBy2("z");
+    function sortDataSector() {
+        if (sortBySector === "a") {
+            setSortBySector("z");
+        } else if (sortBySector === "z") {
+            setSortBySector("a");
         }
-        if (sortBy2 === "z") {
-            setSortBy2("a");
-        }
-        const bookList = [...sector];
 
-        bookList.sort((a, b) => {
+        const sortedDataSector = [...dataSector];
+
+        sortedDataSector.sort((a, b) => {
             if (a["count"] < b["count"]) {
-                return sortBy2 === "a" ? -1 : 1;
-            }
-            if (a["count"] > b["count"]) {
-                return sortBy2 === "a" ? 1 : -1;
+                return sortBySector === "a" ? -1 : 1;
+            } else if (a["count"] > b["count"]) {
+                return sortBySector === "a" ? 1 : -1;
             }
             return 0;
         });
-        setSector(bookList);
+
+        setDataSector(sortedDataSector);
     }
-
-    function sortBooks(x) {
-        if (sortBy === "a") {
-            setSortBy("z");
-        }
-        if (sortBy === "z") {
-            setSortBy("a");
-        }
-        const bookList = [...books];
-
-        bookList.sort((a, b) => {
-            if (a["count"] < b["count"]) {
-                return sortBy === "a" ? -1 : 1;
-            }
-            if (a["count"] > b["count"]) {
-                return sortBy === "a" ? 1 : -1;
-            }
-            return 0;
-        });
-        setBooks(bookList);
-    }
-
-
 
     const [active, setActive] = useState(true);
 
-
-    const activeCss = "gap-1 inline-flex justify-center items-center px-2 md:px-6 py-2 md:py-2 text-white rounded-md bg-orange-500"
-    const inActiveCss = "gap-1  inline-flex justify-center items-center px-2 md:px-6 py-2 md:py-2  rounded-md bg-gray-200 text-gray-600"
+    const activeCss = "gap-1 inline-flex justify-center items-center px-2 md:px-6 py-2 md:py-2 text-white rounded-md bg-orange-500";
+    const inActiveCss = "gap-1 inline-flex justify-center items-center px-2 md:px-6 py-2 md:py-2 rounded-md bg-gray-200 text-gray-600";
 
     return (
-
         <>
             <nav className='flex flex-col sm:flex-row justify-center w-10/12 mx-auto sm:w-full gap-2 mt-8 mb-4 text-sm sm:text-sm md:text-base'>
                 <button onClick={() => setActive(true)} className={active ? activeCss : inActiveCss} to={'/account'}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 md:w-6 h-4 md:h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
                     </svg>
-
                     Number Of Society per State
                 </button>
                 <button onClick={() => setActive(false)} className={active ? inActiveCss : activeCss} to={'/account/bookings'}>
@@ -122,20 +73,28 @@ function PerState() {
                 </button>
             </nav>
 
-
-
-            <div className=" w-10/12 sm:w-9/12 md:w-10/12 lg:w-5/12 mx-auto text-gray-800 overflow-hidden">
+            <div className="w-10/12 sm:w-9/12 md:w-10/12 lg:w-5/12 mx-auto text-gray-800 overflow-hidden">
                 {active && (
-                    <SmallTable sortBooks2={sortBooks2} sortBooks={sortBooks} heading={"Number Of Society per State"} data={books} category={"state"} />
+                    <SmallTable
+                        sortDataSector={sortDataSector}
+                        sortDataState={sortDataState}
+                        heading={"Number Of Society per State"}
+                        data={dataState}
+                        category={"state"}
+                    />
                 )}
-
                 {!active && (
-                    <SmallTable sortBooks2={sortBooks2} sortBooks={sortBooks} heading={"Number Of Society per Type"} data={sector} category={"sectorType"} />
+                    <SmallTable
+                        sortDataSector={sortDataSector}
+                        sortDataState={sortDataState}
+                        heading={"Number Of Society per Type"}
+                        data={dataSector}
+                        category={"sectorType"}
+                    />
                 )}
             </div>
         </>
-
-    )
+    );
 }
 
-export default PerState
+export default PerState;

@@ -1,3 +1,4 @@
+import { allStatesOfIndia, allTypes } from '../allData';
 import React, { useEffect, useRef, useState } from 'react'
 import ReactPaginate from 'react-paginate';
 let { data } = require('../Attachement -dummydataset.json');
@@ -8,14 +9,12 @@ function Reports() {
   const [filterData, setFilterData] = useState(data);
   const [pageCount, setPageCount] = useState(1);
   const currentPage = useRef();
-  const [rows, setRows] = useState(15);
+  const [rows, setRows] = useState(10);
   const [keyword, setKeyword] = useState("");
   const halfSize = data.length / 2;
-  const Rows = [15, 20, halfSize, data.length];
+  const Rows = [10, 15, 20, halfSize, data.length];
   const [sortBy, setSortBy] = useState("a");
   const [state, setState] = useState('all');
-  const allStatesOfIndia = ["ANDHRA PRADESH", "ANDAMAN AND NICOBAR", "ARUNACHAL PRADESH", "ASSAM", "BIHAR", "CHANDIGARH", "CHHATTISGARH", "DADA AND NAGAR HAVELI", "DAMAN AND DIU", "GOA", "GUJARAT", "HARYANA", "HIMACHAL PRADESH", "JAMMU AND KASHMIR", "JHARKHAND", "KARNATAKA", "KERALA", "LAKSHADWEEP", "MADHYA PRADESH", "MAHARASHTRA", "MANIPUR", "MEGHALAYA", "MIZORAM", "NAGALAND", "NEW DELHI", "ODISHA", "PONDICHERRY", "PUNJAB", "RAJASTHAN", "SIKKIM", "TAMIL NADU", "TELANGANA", "TRIPURA", "UTTAR PRADESH", "UTTARAKHAND", "WEST BENGAL"];
-  const allTypes = ["Agro", "Construction", "Consumer", "Cooperative Bank", "Credit", "Dairy", "Federation", "Fisheries", "Health/Hospital", "Housing", "Industrial/Textile", "Marketing", "Multi Purpose", "National Federation", "Others", "Technical", "Tourism", "Transport", "Welfare"]
   const [type, setType] = useState('all');
   const renderOptions = () => {
     return Rows.map((row) => <option key={row}>{row}</option>);
@@ -171,7 +170,8 @@ function Reports() {
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-2 md:w-6 h-2 md:h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 7.5L7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
                   </svg>
-                </button></th>
+                </button>
+              </th>
               <th className='border text-[5px] py-1 sm:py-2 md:py-6 xs:text-[10px] md:text-base text-center'>
                 <button onClick={() => sortBooks("State")} className='flex flex-col justify-center items-center w-1/2 mx-auto'>
                   <div>
