@@ -48,7 +48,7 @@ function Header() {
         <nav className="  border-gray-200 pb-2 bg-gradient-to-r from-orange-200 via-[#f7f5db] to-green-200 overflow-hidden">
             <div className="max-w-screen px-1 sm:px-8 flex flex-wrap items-center justify-between">
                 <Link to={'/'} className="flex items-center justify-center">
-                    <img src={satyamev_jayate} className="sm:w-14 w-5 mr-3 bg-white mt-2 rounded-xl" alt="satyamev jayate" />
+                    <img src={satyamev_jayate} className="sm:w-14 w-5 mr-3 bg-white mt-2 rounded-sm sm:rounded-md md:rounded-xl" alt="satyamev jayate" />
                     <span className="self-center text-[10px] mt-2 xs:text-xs sm:text-md text-gray-800 lg:text-lg font-semibold whitespace-nowrap uppercase ">
                         The Central Registrar <br />
                         for Cooperative Societies

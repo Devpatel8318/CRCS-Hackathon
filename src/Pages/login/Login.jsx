@@ -91,9 +91,12 @@ function Login() {
                         </form>
                     </div>
                 )}
+
+
+
                 {!active && (
-                    <div className="mt-10 min-w-[90vw] sm:min-w-[70vw] md:min-w-[50vw]">
-                        <h1 className="mb-4 text-4xl text-center">Register</h1>
+                    <div className=" mt-4 sm:mt-7 md:mt-10 min-w-[90vw] sm:min-w-[70vw] md:min-w-[50vw]">
+                        <h1 className=" text-4xl text-center">Register</h1>
                         {/* For future */}
                         {/* <form onSubmit={ev => userLogin(ev)} className="max-w-md mx-auto"> */}
                         <form className="mx-auto mb-16">
@@ -105,50 +108,95 @@ function Login() {
                                 className=""
                             />
 
-                            <div className=' flex gap-1'>
-                                <select onChange={(e) => {
-                                    setType(e.target.value);
-                                }} className='w-1/2 text-sm sm:text-base border my-1 rounded-lg p-2 sm:p-3' defaultValue={'all'} >
-                                    <option disabled value={"all"}>Sector Type</option>
-                                    {allTypes.map(type => (
-                                        <option key={type} value={type}>{type}</option>
-                                    ))}
-                                </select>
-                                <select className='w-1/2 text-sm sm:text-base border my-1 rounded-lg p-2  sm:p-3' value={selectedCity}>
-                                    <option disabled value="">Agro Name</option>
-                                    <option value="">Data Not Provided for Hackathon</option>
-                                </select>
+                            <div className=' flex gap-1 sm:gap-3 md:gap-4 mb-2'>
+                                <div className='w-1/2 text-gray-600'>
+                                    <h2 className='text-sm sm:text-md md:text-xl mt-4'>Sector Type: </h2>
+                                    <select onChange={(e) => {
+                                        setType(e.target.value);
+                                    }} className='w-full text-sm sm:text-base border my-1 rounded-lg p-2 sm:p-3' defaultValue={'all'} >
+                                        <option disabled value={"all"}>Sector Type</option>
+                                        {allTypes.map(type => (
+                                            <option key={type} value={type}>{type}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <div className='w-1/2 text-gray-600'>
+                                    <h2 className='text-sm sm:text-md md:text-xl mt-4'>Agro Name: </h2>
+                                    <select className='w-full text-sm sm:text-base border my-1 rounded-lg p-2  sm:p-3' value={selectedCity}>
+                                        <option disabled value="">Agro Name</option>
+                                        <option value="">Data Not Provided for Hackathon</option>
+                                    </select>
+                                </div>
                             </div>
 
-                            <textarea className='w-full border mt-2 rounded-md p-3' placeholder='Complete Reistered Address: ' />
+                            <h2 className='text-sm sm:text-md md:text-xl mt-4 text-gray-600'>Address: </h2>
+                            <textarea className='w-full mb-4 border mt-2 rounded-md p-3' placeholder='Complete Registered Address (with PIN code)' />
 
-                            <div className=' flex gap-1'>
-                                <input type="number" className='w-1/2 text-sm sm:text-base border my-1 rounded-lg p-2 sm:p-3' placeholder='PAN No.' />
-                                <input type="number" className='w-1/2 text-sm sm:text-base border my-1 rounded-lg p-2 sm:p-3' placeholder='TAN NO.' />
+                            <div className=' flex gap-1 sm:gap-3 md:gap-4 mb-2'>
+                                <div className='w-1/2 text-gray-600'>
+                                    <h2 className='text-sm sm:text-md md:text-xl mt- 4'>PAN NO: </h2>
+                                    <input type="number" className='w-full text-sm sm:text-base border my-1 rounded-lg p-2 sm:p-3' placeholder='Please Enter PAN No.' />
+                                </div>
+                                <div className='w-1/2 text-gray-600'>
+                                    <h2 className='text-sm sm:text-md md:text-xl mt- 4'>TAN NO: </h2>
+                                    <input type="number" className='w-full text-sm sm:text-base border my-1 rounded-lg p-2 sm:p-3' placeholder='Please Enter TAN NO.' />
+                                </div>
                             </div>
-                            <div className=' flex gap-1'>
-                                <input type="text" className='w-1/2 text-xs sm:text-base border my-1 rounded-lg p-2 sm:p-3' placeholder='Name of MD/Chairman/Vice Chairman' />
-                                <select className='w-1/2 text-sm sm:text-base border my-1 rounded-lg p-2  sm:p-3' value={selectedCity}>
-                                    <option value="" disabled>Select Designation</option>
-                                    <option value="CH">Chairman/ President</option>
-                                    <option value="VCH">Vice Chairman/Vice President</option>
-                                    <option value="CEO">Managing Director/ CEO</option>
-                                    <option value="COOD">Co-Opted Director</option>
-                                </select>
+
+
+                            <div className=' flex gap-1 sm:gap-3 md:gap-4 mb-2'>
+
+
+                                <div className='w-1/2 text-gray-600'>
+                                    <h2 className='text-md sm:text-sm sm:text-md md:text-xl mt-4'>Name of Chairman: </h2>
+                                    <input type="text" className='w-full text-xs sm:text-base border my-1 rounded-lg p-2 sm:p-3' placeholder='Name of MD/Chairman/Vice Chairman' />
+                                </div>
+
+                                <div className='w-1/2 text-gray-600'>
+                                    <h2 className='text-sm sm:text-md md:text-xl mt-4'>Designation: </h2>
+                                    <select className='w-full text-sm sm:text-base border my-1 rounded-lg p-2  sm:p-3' value={selectedCity}>
+                                        <option value="" disabled>Select Designation</option>
+                                        <option value="CH">Chairman/ President</option>
+                                        <option value="VCH">Vice Chairman/Vice President</option>
+                                        <option value="CEO">Managing Director/ CEO</option>
+                                        <option value="COOD">Co-Opted Director</option>
+                                    </select>
+                                </div>
+
                             </div>
-                            <div className=' flex gap-1'>
-                                <input type="number" className='w-1/2 text-sm sm:text-base border my-1 rounded-lg p-2 sm:p-3' placeholder='Mobile No. of Authorized Officer' />
-                                <input type="email" className='w-1/2 text-sm sm:text-base border my-1 rounded-lg p-2 sm:p-3' placeholder='Email ID' />
+
+                            <div className=' flex gap-1 sm:gap-3 md:gap-4 mb-2'>
+                                <div className='w-1/2 text-gray-600'>
+                                    <h2 className='text-sm sm:text-md md:text-xl mt-4'>Mobile No.</h2>
+                                    <input type="number" className='w-full  text-sm sm:text-base border my-1 rounded-lg p-2 sm:p-3' placeholder='Mobile No. of Authorized Officer' />
+                                </div>
+                                <div className='w-1/2 text-gray-600'>
+                                    <h2 className='text-sm sm:text-md md:text-xl mt-4'>Email ID: </h2>
+                                    <input type="email" className='w-full text-sm sm:text-base border my-1 rounded-lg p-2 sm:p-3' placeholder='Email ID' />
+                                </div>
                             </div>
-                            <div className=' flex gap-1'>
-                                <div className='opacity-0 w-1/2 text-sm sm:text-base border my-1 rounded-lg p-2 sm:p-3' />
-                                <input type="email" className='w-1/2 text-sm sm:text-base border my-1 rounded-lg p-2 sm:p-3' placeholder='Service Tax Number:' />
+
+                            <div className=' flex gap-1 sm:gap-3 md:gap-4 mb-2'>
+                                <div className='w-1/2 text-gray-600'>
+                                    <h2 className='text-sm sm:text-md md:text-xl mt-4 opacity-0'>d</h2>
+                                    <div className='opacity-0 w-1/2 text-sm sm:text-base border my-1 rounded-lg p-2 sm:p-3' />
+                                </div>
+                                <div className='w-1/2 text-gray-600'>
+                                    <h2 className='text-sm sm:text-md md:text-xl mt-4'>Service Tax: </h2>
+                                    <input type="email" className='w-full text-sm sm:text-base border my-1 rounded-lg p-2 sm:p-3' placeholder='Service Tax Number:' />
+                                </div>
                             </div>
-                            <div className=' flex gap-1'>
-                                <input type="password" className='w-1/2 text-sm sm:text-base border my-1 rounded-lg p-2 sm:p-3' placeholder='password' />
-                                <input type="password" className='w-1/2 text-sm sm:text-base border my-1 rounded-lg p-2 sm:p-3' placeholder='confirm password' />
+
+                            <div className=' flex gap-1 sm:gap-3 md:gap-4 mb-2'>
+                                <div className='w-1/2 text-gray-600'>
+                                    <h2 className='text-sm sm:text-md md:text-xl mt-4'>Password: </h2>
+                                    <input type="password" className='w-full text-sm sm:text-base border my-1 rounded-lg p-2 sm:p-3' placeholder='password' /></div>
+                                <div className='w-1/2 text-gray-600'>
+                                    <h2 className='text-sm sm:text-md md:text-xl mt-4'>Confirm-Password: </h2>
+                                    <input type="password" className='w-full text-sm sm:text-base border my-1 rounded-lg p-2 sm:p-3' placeholder='confirm password' /></div>
                             </div>
-                            <button className="mt-3   bg-orange-500 p-2 w-full text-white rounded-lg">Register</button>
+
+                            <button className="mt-4 bg-orange-500 p-3 w-full text-white rounded-lg">Register</button>
                         </form>
                     </div>
                 )}
